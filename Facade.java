@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Facade {
 
 	private int UserType;
@@ -10,8 +12,21 @@ public class Facade {
 
 	private Person thePerson;
 
-	public boolean login() {
-		return false;
+	public boolean login() throws IOException{
+		String loginStatus;
+		Login loginToApp = new Login();
+		loginStatus = loginToApp.Login();
+		if (loginStatus == "Not Found") {
+			System.out.println("Credentials incorrect.");
+			return false;
+		}
+		else if (loginStatus == "BI Login") {
+			System.out.println("Buyer has logged in.");
+		}
+		else if (loginStatus == "SI Login") {
+			System.out.println("seller has logged in.");
+		}
+		return true;
 	}
 
 	public void addTrading() {

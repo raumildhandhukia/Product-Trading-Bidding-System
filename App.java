@@ -16,8 +16,12 @@ public class App{
 	
 	
 	public App() throws IOException{
+		boolean loginStatus;
 		Facade facade = new Facade();
-		facade.login();
+		loginStatus = facade.login();
+		if (loginStatus) {
+			facade.productOperation();
+		}
 	}
 	
 

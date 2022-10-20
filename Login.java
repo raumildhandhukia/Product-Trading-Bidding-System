@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Login {
 
-	public String Login() throws IOException {
+	public UserInfoItem userLogin(UserInfoItem uii) throws IOException {
 		String userName;
 		String password;
 		String LoginStatus = "Not Found";
@@ -28,8 +28,12 @@ public class Login {
 //	        System.out.println(password);
 	        if (userName.equals(userNameInput) && password.equals(passwordInput)) {
 	        	LoginStatus = "BI Login";
+//	        	Buyer thebuyer = new Buyer();
+	        	uii.userName = userName;
+	        	uii.userType = "Buyer";
+//	        	thebuyer.showMenu();
 	        	BIReader.close();
-	        	return LoginStatus;
+	        	return uii;
 	        }
 	      }
 	      BIReader.close();
@@ -42,12 +46,16 @@ public class Login {
 		        password = credList.get(1);
 		        if (userName.equals(userNameInput) && password.equals(passwordInput)) {
 		        	LoginStatus = "SI Login";
+//		        	Seller theSeller = new Seller();
+		        	uii.userName = userName;
+		        	uii.userType = "Seller";
+//		        	theSeller.showMenu();
 		        	SIReader.close();
-		    		return LoginStatus;
+		    		return uii;
 		        }
 	        }
 	    SIReader.close();
-		return LoginStatus;
+		return null;
 	}
 	
 	

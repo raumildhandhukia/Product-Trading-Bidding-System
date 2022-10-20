@@ -1,6 +1,7 @@
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Facade {
+public class Facade{
 
 	private int UserType;
 
@@ -11,23 +12,34 @@ public class Facade {
 	private ClassProductList theProductList;
 
 	private Person thePerson;
+	
+	public UserInfoItem uii;
+	
+	public Facade() {
+		UserInfoItem uii = new UserInfoItem();
+		this.uii = uii;
+	}
+	
 
 	public boolean login() throws IOException{
 		String loginStatus;
 		Login loginToApp = new Login();
-		loginStatus = loginToApp.Login();
-		if (loginStatus == "Not Found") {
+		uii = loginToApp.userLogin(uii);
+		if (uii == null) {
 			System.out.println("Credentials incorrect.");
 			return false;
 		}
-		else if (loginStatus == "BI Login") {
+		else if (uii.userType == "Buyer") {
+			this.UserType = 0;
 			System.out.println("Buyer has logged in.");
 		}
-		else if (loginStatus == "SI Login") {
-			System.out.println("seller has logged in.");
+		else if (uii.userType == "Seller") {
+			this.UserType = 1;
+			System.out.println("Seller has logged in.");
 		}
 		return true;
 	}
+	
 
 	public void addTrading() {
 
@@ -68,9 +80,40 @@ public class Facade {
 	public Product SelectProduct() {
 		return null;
 	}
+	
+	public void productCategory() {
+		boolean state = true;
+		while (state){
+			System.out.println("Select Product Category: 1. Meat 2. Produce 3.Exit");
+			Scanner sc = new Scanner(System.in);
+			int productCategory = sc.nextInt();
+			if (productCategory == 1) {
+				this.nProductCategory = 0;
+				state = false;
+			} else if (productCategory == 2) {
+				this.nProductCategory = 1;
+				state = false;
+			
+			} else if (productCategory == 3) {
+				state = false;
+			} else {
+				System.out.println("Please select appropriate value.");
+			}
+		}
+		
+		
+	}
 
 	public void productOperation() {
-
+		this.productCategory();
+		if (uii.userType == "Buyer") {
+			thePerson = new Buyer();
+		} else {
+			thePerson = new Seller();
+		}
+		thePerson.showMenu();
 	}
+
+
 
 }

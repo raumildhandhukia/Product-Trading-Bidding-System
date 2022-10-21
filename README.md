@@ -1,5 +1,7 @@
 # assignDP.rdhandhu
 
+RUN App.java FILE TO START APPLICATION.
+
 SER-515 Assignment: Design Pattern
 
 Instructor: Dr. Michael J. Findler
@@ -12,3 +14,5 @@ Design Patterns Used:
 3. Bridge
 4. Iterator
 5. Visitor
+
+

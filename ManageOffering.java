@@ -5,6 +5,10 @@
 import java.util.Scanner;
 
 public class ManageOffering {
+	/*
+	 * Manages Seller offering functionalities. Part of
+	 * implementation of `Facade` Design Pattern.
+	 * */
 
 	
 	public void markOffering(UserInfoItem uii) {

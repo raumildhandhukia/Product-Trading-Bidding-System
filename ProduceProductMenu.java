@@ -13,12 +13,6 @@ public class ProduceProductMenu implements ProductMenu{
 String personType;
 ArrayList<Product> productList;
 	
-//	public ProduceProductMenu(String personType) {
-//	
-//		this.personType = personType;
-//		
-//	}
-
 	@Override
 	public void showMenu(String userType) {
 		this.personType = userType;

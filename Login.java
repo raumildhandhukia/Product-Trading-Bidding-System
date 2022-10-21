@@ -1,16 +1,24 @@
+/**
+ * @author Raumil Dhandhukia, rdhandhu@asu.edu
+ * @date 10-20-2022
+ */
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Login {
+	/*
+	 * Login Class for login functionalities. This class
+	 * will handle login system. Based upon provided credentials,
+	 * system will automatically identify the type of user.
+	 * */
 
 	public UserInfoItem userLogin(UserInfoItem uii) throws IOException {
 		String userName;
 		String password;
 		String LoginStatus = "Not Found";
 		Scanner sc= new Scanner(System.in);
-		System.out.println("Welcome to Trading system.");
 		System.out.println("Please Enter Your UserName: ");
 		String userNameInput= sc.nextLine();
 		System.out.println("Please Enter Your Password: ");
@@ -21,18 +29,18 @@ public class Login {
 	      while (BIReader.hasNextLine()) {
 	        String credentials = BIReader.nextLine();
 	        ArrayList<String> credList = new ArrayList<>(Arrays.asList(credentials.split(":")));
-//	        System.out.println(credList);
+
 	        userName = credList.get(0);
 	        password = credList.get(1);
-//	        System.out.println(userName);
-//	        System.out.println(password);
+
 	        if (userName.equals(userNameInput) && password.equals(passwordInput)) {
 	        	LoginStatus = "BI Login";
-//	        	Buyer thebuyer = new Buyer();
+
 	        	uii.userName = userName;
 	        	uii.userType = "Buyer";
-//	        	thebuyer.showMenu();
+
 	        	BIReader.close();
+	        	System.out.println("The Buyer has logged in...");
 	        	return uii;
 	        }
 	      }
@@ -41,16 +49,14 @@ public class Login {
 	        while (SIReader.hasNextLine()) {
 		        String credentials = SIReader.nextLine();
 		        ArrayList<String> credList = new ArrayList<>(Arrays.asList(credentials.split(":")));
-//		        System.out.println(credList);
 		        userName = credList.get(0);
 		        password = credList.get(1);
 		        if (userName.equals(userNameInput) && password.equals(passwordInput)) {
 		        	LoginStatus = "SI Login";
-//		        	Seller theSeller = new Seller();
 		        	uii.userName = userName;
 		        	uii.userType = "Seller";
-//		        	theSeller.showMenu();
 		        	SIReader.close();
+		        	System.out.println("The Seller has logged in...");
 		    		return uii;
 		        }
 	        }

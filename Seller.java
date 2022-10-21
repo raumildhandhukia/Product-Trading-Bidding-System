@@ -1,29 +1,25 @@
-
+/**
+ * @author Raumil Dhandhukia, rdhandhu@asu.edu
+ * @date 10-20-2022
+ */
 public class Seller extends Person {
 
-	@Override
-	public void showComboxes() {
-		// TODO Auto-generated method stub
-		
+	
+	public Seller(ProductMenu menu) {
+		super(menu);
 	}
-
-	@Override
+	
 	public void showMenu() {
-		theProductMenu = createProductMenu();
-		
+		productMenu.showMenu("Seller");
 	}
-
+	
+	public void makeProductList() {
+		productMenu.makeProductList();
+	}
+	
 	@Override
 	public ProductMenu createProductMenu() {
-		ProductMenu ProductMenu;
-		if (this.selectedProductCategory == 0) {
-			ProductMenu = new MeatProductMenu();
-		} else {
-			ProductMenu = new ProduceProductMenu();
-		}
-		ProductMenu.showMenu();
-		
-		return ProductMenu;
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 }

@@ -1,14 +1,31 @@
+/**
+ * @author Raumil Dhandhukia, rdhandhu@asu.edu
+ * @date 10-20-2022
+ */
 import java.util.ArrayList;
 
 public class OfferingIterator implements ListIterator{
+	/*
+	 * Implementation of `Iterator` Design Pattern. This is 
+	 * Iterator class which is implemented from ListIterator
+	 * interface. Methods to iterate OfferingLists are
+	 * defined in this class.
+	 */
 	
+	OfferingList offeringList;
+	Product selectedProduct;
+	
+	public OfferingIterator(OfferingList offeringList, Product product) {
+		this.offeringList = offeringList;
+		this.selectedProduct = product;
+	}
 	public ArrayList<Offering> Offerings;
-	int index;
+	int index = 0;
 	
 	@Override
 	public boolean hasNext() {
 		
-		if(index < Offerings.size()){
+		if(index < offeringList.size()){
             return true;
          }
          return false;
@@ -19,9 +36,9 @@ public class OfferingIterator implements ListIterator{
 		if(this.hasNext()){
 			int i = 1;
 			index++;
-			for(Offering o : Offerings)
+			for(Offering o : offeringList)
 			{	
-				if (i == index) {
+				if (i == index && o.productName.equalsIgnoreCase(selectedProduct.productName)) {
 					return o;
 				}
 			    
@@ -33,16 +50,16 @@ public class OfferingIterator implements ListIterator{
 
 	@Override
 	public boolean MoveToHead() {
-		Offering o = Offerings.get(index);
-		Offerings.remove(index);
-		Offerings.add(0,o);
+		Offering o = offeringList.get(index);
+		offeringList.remove(index);
+		offeringList.add(0,o);
 		return true;
 	}
 
 	@Override
 	public boolean Remove() {
-		if (index <= Offerings.size()) {
-			Offerings.remove(index);
+		if (index <= offeringList.size()) {
+			offeringList.remove(index);
 			return true;
 		}
 		return false;

@@ -1,10 +1,21 @@
+/**
+ * @author Raumil Dhandhukia, rdhandhu@asu.edu
+ * @date 10-20-2022
+ */
 import java.util.ArrayList;
 
 public class ProductIterator implements ListIterator{
-	
+	/*
+	 * Implementation of `Iterator` Design Pattern. This is 
+	 * Iterator class which is implemented from ListIterator
+	 * interface. Methods to iterate ProductLists are
+	 * defined in this class.
+	 */
 	public ArrayList<Product> Products;
 	int index;
-	
+	public static ListIterator getIterator() {
+	      return new ProductIterator();
+	   }
 	@Override
 	public boolean hasNext() {
 		

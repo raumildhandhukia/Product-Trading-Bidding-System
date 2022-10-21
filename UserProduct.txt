@@ -1,0 +1,14 @@
+tutu:Beef
+tutu:Tomato
+mimi:Beef
+mimi:Onion
+pepe:Beef
+pepe:Tomato
+pepe:Onion
+tutu:Beef
+mimi:Beef
+pepe:Tomato
+tutu:Beef
+pepe:Tomato
+tutu:Tomato
+pepe:Tomato

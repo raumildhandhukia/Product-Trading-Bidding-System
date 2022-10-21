@@ -1,0 +1,6 @@
+Mutton:200.0:pepe
+Onion:290.0:pepe
+Beef:120.0:pepe
+Tomato:500.0:pepe
+Tomato:90.0:pepe
+Tomato:200.0:pepe

@@ -1,0 +1,9 @@
+Tomato:120.0
+Pork:300.0:tutu
+Pork:239.0:tutu
+Onion:300.0:tutu
+Beef:121.0:tutu
+Beef:130.0:tutu
+Beef:140.0:mimi
+Beef:140.0:tutu
+Tomato:502.0:tutu

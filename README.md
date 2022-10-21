@@ -1,7 +1,9 @@
 # assignDP.rdhandhu
 
 SER-515 Assignment: Design Pattern
+
 Instructor: Dr. Michael J. Findler
+
 Project: Product Trading and Bidding System
   
 Design Patterns Used:
